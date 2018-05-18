@@ -10,7 +10,7 @@ class CourseCard extends Component {
                 <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">Card text.</p>
-                    <a href="#"><button className="btn btn-primary">More...</button></a>
+                    <a href="#" className="btn btn-primary">More...</a>
                 </div></div>)
     }
 }
