@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import CourseCard  from './CourseCard';
+import CourseCard  from '../components/CourseCard';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class CourseManager extends Component {
