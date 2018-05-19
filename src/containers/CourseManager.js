@@ -3,6 +3,8 @@ import CourseCard  from '../components/CourseCard';
 import 'bootstrap/dist/css/bootstrap.css';
 import ModuleList from './ModuleList';
 import LessonTab from './LessonTab';
+import CourseEditor from './CourseEditor';
+
 
 
 class CourseManager extends Component {
@@ -10,6 +12,7 @@ class CourseManager extends Component {
     render(){
         return <div className="container-fluid">
             <h1 >Course Manager</h1>
+            <CourseEditor/>
             <LessonTab/>
             <ModuleList/>
             <div className="card-deck">
