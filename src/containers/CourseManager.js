@@ -4,23 +4,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ModuleList from './ModuleList';
 import LessonTab from './LessonTab';
 import CourseEditor from './CourseEditor';
+import CourseList from "./CourseList";
 
 
 
 class CourseManager extends Component {
 
     render(){
-        return <div className="container-fluid">
+        return (<div className="container-fluid">
             <h1 >Course Manager</h1>
-            <CourseEditor/>
-            <LessonTab/>
-            <ModuleList/>
-            <div className="card-deck">
-            <CourseCard/>
-            <CourseCard/>
-            <CourseCard/>
-            </div>
-        </div>
+            <CourseList/>
+            </div>)
+
     }
 }
 

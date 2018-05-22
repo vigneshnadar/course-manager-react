@@ -8,7 +8,7 @@ import ModuleListItem from "./components/ModulListItem";
 import ModuleList2 from "./containers/ModuleList2";
 
 ReactDOM.render(
-    //<CourseManager/>
-    <ModuleList2/>
+    <CourseManager/>
+    // <ModuleList2/>
     ,
     document.getElementById('root'));
