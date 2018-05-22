@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1953682b-4b28-478f-a50d-f75d5e51ef7b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CourseRow.js" afterDir="false" />
-    </list>
+    <list default="true" id="1953682b-4b28-478f-a50d-f75d5e51ef7b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -248,16 +246,15 @@
       <updated>1526655779482</updated>
       <workItem from="1526655781318" duration="3876000" />
       <workItem from="1526677804478" duration="3182000" />
-      <workItem from="1526995540765" duration="3772000" />
+      <workItem from="1526995540765" duration="3941000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10830000" />
+    <option name="totallyTimeSpent" value="10999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="43" width="1400" height="788" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24945612" />
       <window_info anchor="bottom" id="TODO" order="6" />
