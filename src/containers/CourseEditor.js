@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import ModuleList from './ModuleList';
 import LessonTab from './LessonTab';
+import ModuleList2 from './ModuleList2';
 
 class CourseEditor extends React.Component {
 
@@ -24,7 +25,8 @@ class CourseEditor extends React.Component {
             <h2> Editing Course: {this.state.courseId} </h2>
         <div className="row">
         <div className="col-4">
-            <ModuleList/>
+            {/*<ModuleList/>*/}
+            <ModuleList2 courseId={this.state.courseId}/>
         </div>
         <div className="col-8">
             <LessonTab/>
