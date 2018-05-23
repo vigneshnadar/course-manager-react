@@ -1,6 +1,10 @@
 let _singleton = Symbol()
+const COURSE_API_URL = 'https://course-manager-server.herokuapp.com/api/course';
+// const COURSE_API_URL = 'api/course';
 
 class CourseService {
+
+
 
     constructor(singleToken) {
         if(_singleton !== singleToken){
@@ -14,6 +18,14 @@ class CourseService {
 
 
         return this[_singleton]
+    }
+
+
+    findAllCourses(){
+        return fetch(COURSE_API_URL)
+            .then(function (response) {
+                return response.json();
+            });
     }
 }
 
