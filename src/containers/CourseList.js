@@ -13,11 +13,16 @@ class CourseList extends React.Component {
             courses : []};
 
         this.titleChanged = this.titleChanged.bind(this);
-        this.createModule = this.createModule.bind(this);
+        // this.createModule = this.createModule.bind(this);
+        this.createCourse = this.createCourse.bind(this);
     }
 
 
     componentDidMount(){
+        this.findAllCourses()
+    }
+
+    findAllCourses(){
         this.courseService.findAllCourses()
             .then((courses) => {
                 console.log(courses);
@@ -35,6 +40,14 @@ class CourseList extends React.Component {
     createModule(event) {
         this.setState({course: {title: event.target.value}});
         console.log(event.target.value);
+        console.log(this.state);
+    }
+
+
+    createCourse(event){
+        this.courseService
+            .createCourse(this.state.course)
+            .then(() => { this.findAllCourses()});
     }
 
 
@@ -69,7 +82,7 @@ class CourseList extends React.Component {
             <tr>
                 <th><input onChange={this.titleChanged} className="form-control" id="titleFld"
                            placeholder="cs101"/></th>
-                <th><button onChange={this.createModule} className="btn btn-primary">Add</button></th>
+                <th><button onClick={this.createCourse} className="btn btn-primary">Add</button></th>
             </tr>
             </thead>
         <tbody>
