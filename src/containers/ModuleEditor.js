@@ -40,9 +40,9 @@ class ModuleEditor extends React.Component {
                     {/*<ModuleList/>*/}
                     <LessonList courseId={this.state.courseId} moduleId={this.state.moduleId}/>
                 </div>
-                <div className="col-8">
-                    <LessonTab/>
-                </div>
+                {/*<div className="col-8">*/}
+                    {/*<LessonTab/>*/}
+                {/*</div>*/}
             </div>
         </div>
     );}

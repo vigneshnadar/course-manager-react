@@ -41,14 +41,14 @@ class CourseList extends React.Component {
         if(this.state.course.created == null){
             this.setState({course: {
                 title: event.target.value,
-                created: new Date().getTime(),
-                    modified: new Date().getTime()}});
+                created: new Date(),
+                    modified: new Date()}});
         }
         else {
             this.setState({course: {
                     title: event.target.value,
                     created: createdDate,
-                    modified: new Date().getTime()}});
+                    modified: new Date()}});
 
         }
 
