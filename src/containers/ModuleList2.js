@@ -1,13 +1,15 @@
 import React from 'react';
 import ModuleListItem from '../components/ModulListItem';
 import ModuleService from '../services/ModuleService';
+import CourseEditor from "./CourseEditor";
+import CourseList from "./CourseList";
 
 class ModuleList2 extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            courseId: '',
+            courseId: '0',
             module: {title: ''},
             modules: [
                 {title: 'Module 1 - jQuery', id: 123},
@@ -44,6 +46,9 @@ class ModuleList2 extends React.Component {
         this.moduleService
             .findAllModulesForCourse(courseId)
             .then((modules) => {this.setModules(modules)});
+
+        // this.findAllModulesForCourse(courseId);
+
     }
 
     setModules(modules) {
@@ -59,8 +64,10 @@ class ModuleList2 extends React.Component {
 
 
     renderListOfModules() {
+
+        var cId = this.state.courseId;
         let modules = this.state.modules.map(function (module) {
-            return <ModuleListItem key={module.id} title={module.title}/>
+            return <ModuleListItem key={module.id} title={module.title} moduleId={module.id} courseId={cId}/>
         })
 
 
@@ -92,6 +99,8 @@ class ModuleList2 extends React.Component {
                         <i className= "fa fa-plus"> </i>
                     </button>
                     {this.renderListOfModules()}
+
+
                 </ul>
             </div>
         )

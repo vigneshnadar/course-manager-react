@@ -5,6 +5,8 @@ import ModuleList from './ModuleList';
 import LessonTab from './LessonTab';
 import CourseEditor from './CourseEditor';
 import CourseList from "./CourseList";
+import LessonList from "./LessonList";
+import ModuleEditor from "../containers/ModuleEditor";
 
 import { BrowserRouter as Router,Route} from 'react-router-dom';
 
@@ -20,6 +22,8 @@ class CourseManager extends Component {
             <Route path="/courses" component={CourseList}>
             </Route>
                 <Route path="/course/:courseId" component={CourseEditor}>
+                </Route>
+                <Route path="/course/:courseId/module/:moduleId" component={ModuleEditor}>
                 </Route>
                 {/*<CourseList/>*/}
             </div>
