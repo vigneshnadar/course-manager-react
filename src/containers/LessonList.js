@@ -49,7 +49,7 @@ class LessonList extends React.Component {
     findAllLessonsForModule(courseId, moduleId) {
         this.lessonService
             .findAllLessonsForModule(courseId, moduleId)
-            .then((lessons) => {this.setModules(lessons)});
+            .then((lessons) => {this.setLessons(lessons)});
 
         // this.findAllModulesForCourse(courseId);
 
@@ -102,7 +102,9 @@ class LessonList extends React.Component {
         this.setState({lesson: {title: event.target.value}});
         console.log(event.target.value);
 
-        this.lessonService.createLesson(this.props.courseId,this.props.moduleId,this.state.lesson);
+        this.lessonService
+            .createLesson(this.props.courseId,this.props.moduleId,this.state.lesson)
+            .then(() => { this.findAllLessonsForModule(this.props.courseId,this.props.moduleId)});;
     }
 
     render() {

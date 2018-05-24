@@ -3,6 +3,8 @@ import ModuleListItem from '../components/ModulListItem';
 import ModuleService from '../services/ModuleService';
 import CourseEditor from "./CourseEditor";
 import CourseList from "./CourseList";
+import ModuleEditor from "./ModuleEditor";
+import { BrowserRouter as Router,Route} from 'react-router-dom';
 
 class ModuleList2 extends React.Component {
 
@@ -100,12 +102,15 @@ class ModuleList2 extends React.Component {
         this.setState({module: {title: event.target.value}});
         console.log(event.target.value);
 
-        this.moduleService.createModule(this.props.courseId,this.state.module);
+        this.moduleService
+            .createModule(this.props.courseId,this.state.module)
+            .then(() => { this.findAllModulesForCourse(this.props.courseId)});
     }
 
     render() {
         return (
             <div className="container-fluid"><br/>
+
                 <h3>Module list for course: {this.state.courseId}</h3>
                 <input className="form-control"
                        onChange={this.titleChanged}
@@ -115,10 +120,8 @@ class ModuleList2 extends React.Component {
                         <i className= "fa fa-plus"> </i>
                     </button>
                     {this.renderListOfModules()}
-
-
-                </ul>
-            </div>
+                    </ul>
+                    </div>
         )
     }
 }

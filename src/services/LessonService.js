@@ -22,9 +22,10 @@ class LessonService {
 
 
     createLesson(courseId, moduleId,lesson){
+        console
 
         var DYNAMIC_URL = LESSON_API_URL.replace('CID',courseId)
-        DYNAMIC_URL = LESSON_API_URL.replace('MID',moduleId)
+        DYNAMIC_URL = DYNAMIC_URL.replace('MID',moduleId)
         console.log(DYNAMIC_URL);
         return fetch(DYNAMIC_URL,{
             body: JSON.stringify(lesson),
@@ -40,7 +41,7 @@ class LessonService {
     findAllLessonsForModule(courseId, moduleId) {
 
         var DYNAMIC_URL = LESSON_API_URL.replace('CID',courseId);
-        DYNAMIC_URL = LESSON_API_URL.replace('MID',moduleId);
+        DYNAMIC_URL = DYNAMIC_URL.replace('MID',moduleId);
         return fetch(DYNAMIC_URL)
             .then(function (response) {
                 return response.json();
