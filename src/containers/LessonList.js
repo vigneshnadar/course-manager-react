@@ -25,6 +25,7 @@ class LessonList extends React.Component {
 
         this.titleChanged = this.titleChanged.bind(this);
         this.createLesson = this.createLesson.bind(this);
+        this.deleteLesson = this.deleteLesson.bind(this);
 
 
         this.setCourseId = this.setCourseId.bind(this);
@@ -75,9 +76,21 @@ class LessonList extends React.Component {
 
 
 
+    deleteLesson(lessonId){
+        console.log("delete lesson");
+        console.log(lessonId);
+        // console.log(this.props.course.id);
+        //
+        // var crId = this.props.course.id;
+        //
+        this.lessonService
+            .deleteLesson(lessonId)
+            .then(() => { this.findAllLessonsForModule(this.state.courseId, this.state.moduleId)});
+    }
+
     renderListOfLessons() {
-        let lessons = this.state.lessons.map(function (lesson) {
-            return <LessonListItem key={lesson.id} title={lesson.title}/>
+        let lessons = this.state.lessons.map((lesson) =>  {
+            return <LessonListItem key={lesson.id} title={lesson.title} lessonId={lesson.id} delete={this.deleteLesson}/>
         })
 
 
