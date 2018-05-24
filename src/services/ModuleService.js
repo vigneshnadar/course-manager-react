@@ -1,6 +1,7 @@
 let _singleton = Symbol()
 // const COURSE_API_URL = 'https://course-manager-server.herokuapp.com/api/course';
 const MODULE_API_URL = 'http://localhost:8080/api/course/CID/module';
+const MODULE_DELETE_API_URL = 'http://localhost:8080/api/module/MID';
 
 class ModuleService {
 
@@ -41,6 +42,15 @@ class ModuleService {
                 return response.json();
             })
     }
+
+
+    deleteModule(moduleId) {
+        return fetch(MODULE_DELETE_API_URL.replace
+        ('MID', moduleId), {
+            method: 'delete'
+        })
+    }
+
 
 }
 

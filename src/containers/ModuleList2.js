@@ -27,6 +27,7 @@ class ModuleList2 extends React.Component {
 
 
         this.setCourseId = this.setCourseId.bind(this);
+        this.deleteModule = this.deleteModule.bind(this);
 
         this.moduleService = ModuleService.instance;
     }
@@ -62,12 +63,27 @@ class ModuleList2 extends React.Component {
     }
 
 
+    deleteModule(moduleId){
+        console.log("delete module");
+        console.log(moduleId);
+        // console.log(this.props.course.id);
+        //
+        // var crId = this.props.course.id;
+        //
+        this.moduleService
+            .deleteModule(moduleId)
+            .then(() => { this.findAllModulesForCourse(this.state.courseId)});
+    }
+
+
 
     renderListOfModules() {
 
+
+
         var cId = this.state.courseId;
-        let modules = this.state.modules.map(function (module) {
-            return <ModuleListItem key={module.id} title={module.title} moduleId={module.id} courseId={cId}/>
+        let modules = this.state.modules.map((module) => {
+            return <ModuleListItem key={module.id} title={module.title} moduleId={module.id} courseId={cId} delete={this.deleteModule}/>
         })
 
 

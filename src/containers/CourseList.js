@@ -124,8 +124,10 @@ class CourseList extends React.Component {
                Owner
             </th>
             <th>
-                Last Modified
-            </th>
+                    Last Modified
+                </th>
+                <th>
+                </th>
             </tr>
             </thead>
         <tbody>
