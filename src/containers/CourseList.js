@@ -17,6 +17,7 @@ class CourseList extends React.Component {
         this.titleChanged = this.titleChanged.bind(this);
         // this.createModule = this.createModule.bind(this);
         this.createCourse = this.createCourse.bind(this);
+        this.deleteCourse = this.deleteCourse.bind(this);
     }
 
 
@@ -69,23 +70,38 @@ class CourseList extends React.Component {
     }
 
 
+    deleteCourse(crId){
+        console.log("delete");
+        console.log(crId);
+        // console.log(this.props.course.id);
+        //
+        // var crId = this.props.course.id;
+        //
+        this.courseService
+            .deleteCourse(crId)
+            .then(() => { this.findAllCourses()});
+    }
+
+
+
+
+//     map( (course) => {
+//
+//     return <CourseRow course={course} key={course.id}
+//
+// delete={this.deleteCourse}/>} );
+
     renderCourseRows() {
 
-        let  courses = this.state.courses.map(
-            function (course) {
+        let  courses = this.state.courses.map((course) => {
                 return (
-                    <CourseRow key={course.id} course={course}/>
+                    <CourseRow key={course.id} course={course} delete={this.deleteCourse}/>
                 )
             }
         );
 
         return courses;
 
-
-
-        // return (
-        //     <CourseRow/>
-        // )
     }
 
 
@@ -99,7 +115,7 @@ class CourseList extends React.Component {
             <tr><th>Title</th></tr>
             <tr>
                 <th><input onChange={this.titleChanged} className="form-control" id="titleFld"
-                           placeholder="cs101"/></th>
+                           placeholder="CS 5610"/></th>
                 <th><button onClick={this.createCourse} className="btn btn-primary">Add</button></th>
             </tr>
             </thead>
