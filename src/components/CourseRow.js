@@ -24,7 +24,7 @@ class CourseRow extends React.Component {
                 {this.props.course.title}
                 </Link>
                 </td>
-            <td>{this.props.course.created}</td>
+                <td>me</td>
                 <td>{this.props.course.modified}</td>
 <td> <button id={this.props.course.id} onClick={this.delCourse} type="button" className="btn btn-danger"><i className="fa fa-trash"></i></button></td>
             </tr>
