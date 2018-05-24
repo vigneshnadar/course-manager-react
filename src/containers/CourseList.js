@@ -9,7 +9,9 @@ class CourseList extends React.Component {
         super();
         this.courseService = CourseService.instance;
         this.state = {
-            course : {title : ''},
+            course : {title : '',
+                      created: null,
+                      modified: null},
             courses : []};
 
         this.titleChanged = this.titleChanged.bind(this);
@@ -32,7 +34,23 @@ class CourseList extends React.Component {
 
 
     titleChanged(event) {
-        this.setState({course: {title: event.target.value}});
+
+        var createdDate = this.state.course.created;
+
+        if(this.state.course.created == null){
+            this.setState({course: {
+                title: event.target.value,
+                created: new Date().getTime(),
+                    modified: new Date().getTime()}});
+        }
+        else {
+            this.setState({course: {
+                    title: event.target.value,
+                    created: createdDate,
+                    modified: new Date().getTime()}});
+
+        }
+
         console.log(this.state);
         console.log(event.target.value);
     }

@@ -13,7 +13,10 @@ class CourseRow extends React.Component {
                 <Link to= {`/course/${this.props.course.id}`}>
                 {this.props.course.title}
                 </Link>
-                </td></tr>
+                </td>
+            <td>{this.props.course.created}</td>
+                <td>{this.props.course.modified}</td>
+            </tr>
         )
     }
 }
