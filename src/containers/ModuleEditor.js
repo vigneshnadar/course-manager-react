@@ -19,6 +19,7 @@ class ModuleEditor extends React.Component {
     }
 
     componentDidMount(){
+
         this.selectCourse(this.props.match.params.courseId);
         this.selectModule(this.props.match.params.moduleId);
     }

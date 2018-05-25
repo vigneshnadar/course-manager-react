@@ -14,15 +14,20 @@ class LessonListItem extends Component {
         this.props.delete(this.props.lessonId);
     }
 
+
+
+
+
     render(){
-        return  (<li className="list-group-item">
-                    {this.props.title}
-                <span className="float-right">
-                    <button onClick={this.delLesson} type="button" className="btn btn-danger">
-                        <i className="fa fa-trash"></i></button>
-                <i className="fa fa-pencil"></i>
-              </span>
-            </li>
+        return  (
+
+                <li className="nav-item"><a className="nav-link active" href="#">  {this.props.title}
+                    {/*<span className="float-right">*/}
+                    {/*<button onClick={this.delLesson} type="button" className="btn btn-danger">*/}
+                        {/*<i className="fa fa-trash"></i>*/}
+                    {/*</button></span>*/}
+                </a></li>
+
         );
     }
 }

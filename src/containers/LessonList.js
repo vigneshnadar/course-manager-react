@@ -122,6 +122,7 @@ class LessonList extends React.Component {
 
     render() {
         return (
+            <div>
             <div className="container-fluid"><br/>
                 <h3>Lesson list for module: {this.state.moduleId}</h3>
                 <input className="form-control"
@@ -131,7 +132,13 @@ class LessonList extends React.Component {
                     <button onClick={this.createLesson} className= "btn btn-primary btn-block">
                         <i className= "fa fa-plus"> </i>
                     </button>
-                    {this.renderListOfLessons()}
+
+                </ul>
+
+            </div>
+
+                <ul className="nav nav-tabs">
+                {this.renderListOfLessons()}
                 </ul>
             </div>
         )
