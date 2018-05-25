@@ -37,10 +37,10 @@ class ModuleEditor extends React.Component {
         <div>
             <h2> Editing Module: {this.state.moduleId} </h2>
             <div className="row">
-                <div className="col-4">
+
                     {/*<ModuleList/>*/}
                     <LessonList courseId={this.state.courseId} moduleId={this.state.moduleId}/>
-                </div>
+
                 {/*<div className="col-8">*/}
                     {/*<LessonTab/>*/}
                 {/*</div>*/}
