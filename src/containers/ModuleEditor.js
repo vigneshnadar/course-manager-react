@@ -4,6 +4,7 @@ import ModuleList from './ModuleList';
 import LessonTab from './LessonTab';
 import ModuleList2 from './ModuleList2';
 import LessonList from './LessonList';
+import ModuleService from "../services/ModuleService";
 
 class ModuleEditor extends React.Component {
 
@@ -11,9 +12,11 @@ class ModuleEditor extends React.Component {
         super(props);
         this.state = {
             courseId : '',
-            moduleId : ''
+            moduleId : '',
+            moduleTitle: ''
         };
 
+        this.moduleService = ModuleService.instance;
         this.selectCourse = this.selectCourse.bind(this);
         this.selectModule = this.selectModule.bind(this);
     }
@@ -22,6 +25,14 @@ class ModuleEditor extends React.Component {
 
         this.selectCourse(this.props.match.params.courseId);
         this.selectModule(this.props.match.params.moduleId);
+
+        this.moduleService.findModuleById(this.props.match.params.moduleId)
+            .then((module) => {
+                // console.log(courses);
+                this.setState({ courseId : this.props.match.params.courseId,
+                    moduleId: this.props.match.params.moduleId,
+                    moduleTitle: module.title})
+            });
     }
 
 
@@ -35,7 +46,8 @@ class ModuleEditor extends React.Component {
 
     render() { return (
         <div>
-            {/*<h2> Editing Module: {this.state.moduleId} </h2>*/}
+            <h2> Editing Module: ** {this.state.moduleTitle} ** </h2>
+            <b>Please Refresh page on click</b>
             <div className="row">
 
                     {/*<ModuleList/>*/}

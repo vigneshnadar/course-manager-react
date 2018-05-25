@@ -66,8 +66,8 @@ class ModuleList2 extends React.Component {
 
 
     deleteModule(moduleId){
-        console.log("delete module");
-        console.log(moduleId);
+        // console.log("delete module");
+        // console.log(moduleId);
         // console.log(this.props.course.id);
         //
         // var crId = this.props.course.id;

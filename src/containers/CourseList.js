@@ -28,7 +28,7 @@ class CourseList extends React.Component {
     findAllCourses(){
         this.courseService.findAllCourses()
             .then((courses) => {
-                console.log(courses);
+                // console.log(courses);
                 this.setState({ courses : courses})
             });
     }

@@ -3,6 +3,7 @@ let _singleton = Symbol()
 const MODULE_API_URL = 'http://localhost:8080/api/course/CID/module';
 const MODULE_DELETE_API_URL = 'http://localhost:8080/api/module/MID';
 
+
 class ModuleService {
 
 
@@ -49,6 +50,15 @@ class ModuleService {
         ('MID', moduleId), {
             method: 'delete'
         })
+    }
+
+    findModuleById(moduleId) {
+        return fetch(
+            MODULE_DELETE_API_URL
+                .replace('MID', moduleId))
+            .then(function (response) {
+                return response.json();
+            })
     }
 
 

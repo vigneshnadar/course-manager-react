@@ -77,8 +77,8 @@ class LessonList extends React.Component {
 
 
     deleteLesson(lessonId){
-        console.log("delete lesson");
-        console.log(lessonId);
+        // console.log("delete lesson");
+        // console.log(lessonId);
         // console.log(this.props.course.id);
         //
         // var crId = this.props.course.id;
@@ -100,7 +100,7 @@ class LessonList extends React.Component {
 
     titleChanged(event) {
         this.setState({lesson: {title: event.target.value}});
-        console.log(event.target.value);
+        // console.log(event.target.value);
     }
 
     // createModule(event) {
