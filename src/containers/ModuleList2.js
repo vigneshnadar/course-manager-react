@@ -124,6 +124,8 @@ class ModuleList2 extends React.Component {
                         </td>
                     </tr>
                 </table><br/>
+                <b>Please Refresh page on click</b>
+                <br/>
 
                 {/*<h3>Module list for course: {this.state.courseId}</h3>*/}
                 {/*<input className="form-control"*/}

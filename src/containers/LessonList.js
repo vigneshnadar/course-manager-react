@@ -144,6 +144,11 @@ class LessonList extends React.Component {
                         </td>
                     </tr>
                 </table>
+
+                {/*<div className="tab-content">*/}
+                    {/*/!*<div id={}*!/*/}
+                {/*/!*</div>*!/*/}
+
                 </div>
                </div>
 

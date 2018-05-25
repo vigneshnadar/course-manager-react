@@ -47,7 +47,7 @@ class ModuleEditor extends React.Component {
     render() { return (
         <div>
             <h2> Editing Module: ** {this.state.moduleTitle} ** </h2>
-            <b>Please Refresh page on click</b>
+            {/*<b>Please Refresh page on click</b>*/}
             <div className="row">
 
                     {/*<ModuleList/>*/}
