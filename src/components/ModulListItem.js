@@ -24,7 +24,6 @@ class ModuleListItem extends Component {
                 <button id={this.props.courseId} onClick={this.delModule} type="button" className="btn btn-danger">
                     <i className="fa fa-trash"></i>
                 </button>
-                <i className="fa fa-pencil"></i>
               </span>
                     </li>
             );

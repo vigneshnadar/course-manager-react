@@ -1,6 +1,7 @@
 let _singleton = Symbol()
 // const COURSE_API_URL = 'https://course-manager-server.herokuapp.com/api/course';
 const COURSE_API_URL = 'http://localhost:8080/api/course';
+const COURSE_ID_API_URL = 'http://localhost:8080/api/course/CID';
 
 class CourseService {
 
@@ -50,6 +51,16 @@ class CourseService {
             .then(function (response) {
                 return response.json();
             });
+    }
+
+
+    findCourseById(courseId) {
+        return fetch(
+            COURSE_ID_API_URL
+                .replace('CID', courseId))
+            .then(function (response) {
+                return response.json();
+            })
     }
 }
 

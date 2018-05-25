@@ -21,11 +21,12 @@ class LessonListItem extends Component {
     render(){
         return  (
 
-                <li className="nav-item"><a className="nav-link active" href="#">  {this.props.title}
-                    {/*<span className="float-right">*/}
-                    {/*<button onClick={this.delLesson} type="button" className="btn btn-danger">*/}
-                        {/*<i className="fa fa-trash"></i>*/}
-                    {/*</button></span>*/}
+                <li className="nav-item"><a className="nav-link active" href="#">
+                     <span >
+                         {this.props.title+" "}
+                    <button onClick={this.delLesson} type="button" className="btn btn-outline-primary">
+                        X
+                    </button></span>
                 </a></li>
 
         );

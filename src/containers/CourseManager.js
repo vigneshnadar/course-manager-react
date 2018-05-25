@@ -18,7 +18,7 @@ class CourseManager extends Component {
         return (
             <Router>
             <div className="container-fluid">
-            <h1 >Course Manager</h1>
+                <h1 className="text-white bg-primary"><center>Course Manager</center></h1>
             <Route path="/courses" component={CourseList}>
             </Route>
                 <Route path="/course/:courseId" component={CourseEditor}>

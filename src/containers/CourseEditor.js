@@ -4,18 +4,30 @@ import LessonTab from './LessonTab';
 import ModuleEditor from './ModuleEditor';
 import ModuleList2 from './ModuleList2';
 import { BrowserRouter as Router,Route,Switch,Redirect} from 'react-router-dom';
+import CourseService from "../services/CourseService";
 
 class CourseEditor extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = {courseId : ''};
+        this.state = {courseId : '',
+        courseTitle:''};
+        this.courseService = CourseService.instance;
         this.selectCourse = this.selectCourse.bind(this);
+
     }
 
     componentDidMount(){
         this.selectCourse(this.props.match.params.courseId);
+        this.courseService.findCourseById(this.props.match.params.courseId)
+            .then((course) => {
+                // console.log(courses);
+                this.setState({ courseId : this.state.courseId,
+                courseTitle: course.title})
+            });
     }
+
+
 
 
     selectCourse(courseId){
@@ -26,7 +38,7 @@ class CourseEditor extends React.Component {
         <Router>
 
             <div>
-            <h2> Editing Course: {this.state.courseId} </h2>
+            <h2> Editing Course: {this.state.courseTitle} </h2>
         <div className="row">
         <div className="col-4">
             {/*<ModuleList/>*/}
