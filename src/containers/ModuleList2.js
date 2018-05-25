@@ -111,14 +111,29 @@ class ModuleList2 extends React.Component {
         return (
             <div className="container-fluid"><br/>
 
+                <table>
+                    <tr>
+                       <td className="col-10"> <input className="form-control"
+                               onChange={this.titleChanged}
+                               placeholder="Enter Module"/>
+                       </td>
+                        <td className="col-2">
+                            <button onClick={this.createModule} className= "btn btn-primary btn-block">
+                                <i className= "fa fa-plus"> </i>
+                            </button>
+                        </td>
+                    </tr>
+                </table><br/>
+
                 {/*<h3>Module list for course: {this.state.courseId}</h3>*/}
-                <input className="form-control"
-                       onChange={this.titleChanged}
-                       placeholder="title"/>
+                {/*<input className="form-control"*/}
+                       {/*onChange={this.titleChanged}*/}
+                       {/*placeholder="Enter Module"/>*/}
+                {/*<ul className="list-group">*/}
+                    {/*<button onClick={this.createModule} className= "btn btn-primary btn-block">*/}
+                        {/*<i className= "fa fa-plus"> </i>*/}
+                    {/*</button>*/}
                 <ul className="list-group">
-                    <button onClick={this.createModule} className= "btn btn-primary btn-block">
-                        <i className= "fa fa-plus"> </i>
-                    </button>
                     {this.renderListOfModules()}
                     </ul>
                     </div>

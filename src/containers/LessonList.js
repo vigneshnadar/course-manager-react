@@ -117,30 +117,37 @@ class LessonList extends React.Component {
 
         this.lessonService
             .createLesson(this.props.courseId,this.props.moduleId,this.state.lesson)
-            .then(() => { this.findAllLessonsForModule(this.props.courseId,this.props.moduleId)});;
+            .then(() => { this.findAllLessonsForModule(this.props.courseId,this.props.moduleId)});
     }
 
     render() {
         return (
             <div>
             <div className="container-fluid"><br/>
-                <h3>Lesson list for module: {this.state.moduleId}</h3>
-                <input className="form-control"
-                       onChange={this.titleChanged}
-                       placeholder="title"/>
-                <ul className="list-group">
-                    <button onClick={this.createLesson} className= "btn btn-primary btn-block">
-                        <i className= "fa fa-plus"> </i>
-                    </button>
+                {/*<h3>Lesson list for module: {this.state.moduleId}</h3>*/}
+               <table>
+                    <tr>
+                        <td className="col-10"><input className="form-control" onChange={this.titleChanged} placeholder="Enter Lesson"/></td>
+                        <td className="col-2"><button onClick={this.createLesson} className= "btn btn-primary">
+                            <i className= "fa fa-plus"> </i>
+                        </button>
+                        </td>
+                    </tr>
+                </table><br/>
 
-                </ul>
+                <table>
+                    <tr>
+                        <td>
+                    <ul className="nav nav-tabs">
+                        {this.renderListOfLessons()}
+                    </ul>
+                        </td>
+                    </tr>
+                </table>
+                </div>
+               </div>
 
-            </div>
 
-                <ul className="nav nav-tabs">
-                {this.renderListOfLessons()}
-                </ul>
-            </div>
         )
     }
 }
