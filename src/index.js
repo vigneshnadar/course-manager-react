@@ -12,3 +12,23 @@ ReactDOM.render(
     // <ModuleList2/>
     ,
     document.getElementById('root'));
+
+
+
+// import {createStore} from 'redux'
+// import { widgetReducer} from "./reducers/widgetReducer";
+// import {WidgetApp} from "./containers/widgetList";
+// import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+
+
+// let store = createStore(widgetReducer)
+//
+//
+//
+// ReactDOM.render(
+//     <Provider store={store}>
+//         <App/>
+//     </Provider>,
+//     document.getElementById('root')
+// )

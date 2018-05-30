@@ -3,7 +3,13 @@ import ModuleListItem from '../components/ModulListItem';
 import ModuleService from '../services/ModuleService';
 import LessonService from "../services/LessonService";
 import LessonListItem from '../components/LessonListItem';
+import {createStore} from 'redux'
+import { widgetReducer} from "../reducers/widgetReducer";
+import {WidgetApp} from "./widgetList";
+import {Provider, connect} from 'react-redux'
 
+
+let store = createStore(widgetReducer);
 class LessonList extends React.Component {
 
     constructor(props) {
@@ -21,6 +27,9 @@ class LessonList extends React.Component {
                 {title: 'Module 6 - MongoDB', id: 678}
             ]
         }
+
+
+
 
 
         this.titleChanged = this.titleChanged.bind(this);
@@ -144,6 +153,12 @@ class LessonList extends React.Component {
                         </td>
                     </tr>
                 </table>
+                <div className="tab-content">
+                        <Provider store={store}>
+                                     <WidgetApp/>
+                        </Provider>
+
+                </div>
 
                 {/*<div className="tab-content">*/}
                     {/*/!*<div id={}*!/*/}
