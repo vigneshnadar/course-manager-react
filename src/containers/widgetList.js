@@ -20,10 +20,16 @@ class WidgetList extends Component {
         this.props.findAllWidgets()
     }
 
+    // componentWillReceiveProps(nextProps){
+    //     console.log("new props"+nextProps.lessonId)
+    //     if(nextProps.lessonId != newLessonId){
+    //         // this.props.findAllWidgets()
+    //     }
+    // }
+
     render() {
         return (
             <div className="container">
-                <h1>Widget List: ({this.props.widgets.length})</h1>
                 <button className="btn btn-success" hidden={this.props.previewMode} onClick={this.props.save}>Save</button>
                 &nbsp;
                 <button className="btn btn-dark" onClick={this.props.preview}>Preview</button>
