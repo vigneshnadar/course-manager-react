@@ -5,6 +5,7 @@ import {ADD_WIDGET,MOVE_UP_WIDGET,LINK_URL_CHANGED,LIST_TYPE_CHANGED,PARAGRAPH_T
 
 
 
+const WIDGET_GET_API_URL='http://localhost:8080/api/lesson/LID/widget'
 
 export const linkUrlChanged = (dispatch,widgetId, newUrl) => (
     dispatch({type: LINK_URL_CHANGED,
@@ -55,8 +56,8 @@ export const paragraphTextChanged = (dispatch,widgetId, newText) => (
 )
 
 
-export const findAllWidgets = dispatch => {
-    fetch('http://localhost:8080/api/widget')
+export const findAllWidgets = (dispatch,lessonId) => {
+    fetch(WIDGET_GET_API_URL.replace('LID', lessonId))
         .then(response => response.json())
         .then(widgets => dispatch({
                 type: FIND_ALL_WIDGETS,
@@ -75,8 +76,8 @@ export const addWidget = dispatch => {
     dispatch({type : ADD_WIDGET})
 }
 
-export const save = dispatch => {
-    dispatch({type : SAVE})
+export const save = (dispatch,newLesson) => {
+    dispatch({type : SAVE, lesson: newLesson})
 }
 
 

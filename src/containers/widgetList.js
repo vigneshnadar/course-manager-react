@@ -5,12 +5,18 @@ import {connect} from "react-redux";
 import React from 'react';
 import {WidgetContainer} from "../components/widget";
 
+const WIDGET_GET_API_URL='http://localhost:8080/api/lesson/LID/widget'
+let newLessonId
 class WidgetList extends Component {
     // ({widgets, dispatch})
 
 
     constructor(props){
         super(props)
+
+        console.log("lessonn here is"+this.props.lessonId)
+        newLessonId = this.props.lessonId
+        console.log(this.props)
         this.props.findAllWidgets()
     }
 
@@ -45,9 +51,9 @@ const stateToPropertiesMapper = (state) => (
 
 
 const dispatchToPropsMapper = dispatch => ({
-    findAllWidgets: () => findAllWidgets(dispatch),
+    findAllWidgets: () => findAllWidgets(dispatch,newLessonId),
     addWidget: () => addWidget(dispatch),
-    save: () => save(dispatch),
+    save: () => save(dispatch,newLessonId),
     preview: () => preview(dispatch)
 })
 

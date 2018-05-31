@@ -5,6 +5,9 @@ import LessonTab from './LessonTab';
 import ModuleList2 from './ModuleList2';
 import LessonList from './LessonList';
 import ModuleService from "../services/ModuleService";
+import CourseEditor from "./CourseEditor";
+import WidgetEditor from "./WidgetEditor";
+import { BrowserRouter as Router,Route} from 'react-router-dom';
 
 class ModuleEditor extends React.Component {
 
@@ -45,19 +48,27 @@ class ModuleEditor extends React.Component {
     }
 
     render() { return (
+<Router>
         <div>
             <h2> Editing Module: ** {this.state.moduleTitle} ** </h2>
-            {/*<b>Please Refresh page on click</b>*/}
+            <b>Please Refresh page on click</b>
             <div className="row">
 
                     {/*<ModuleList/>*/}
                     <LessonList courseId={this.state.courseId} moduleId={this.state.moduleId}/>
+
+
+
+                <Route exact path="/course/:courseId/module/:moduleId/lesson/:lessonId" component={WidgetEditor}>
+
+                </Route>
 
                 {/*<div className="col-8">*/}
                     {/*<LessonTab/>*/}
                 {/*</div>*/}
             </div>
         </div>
+</Router>
     );}
 }
 

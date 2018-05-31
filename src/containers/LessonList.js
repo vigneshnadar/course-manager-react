@@ -9,6 +9,9 @@ import {WidgetApp} from "./widgetList";
 import {Provider, connect} from 'react-redux'
 
 
+
+
+
 let store = createStore(widgetReducer);
 class LessonList extends React.Component {
 
@@ -97,13 +100,43 @@ class LessonList extends React.Component {
             .then(() => { this.findAllLessonsForModule(this.state.courseId, this.state.moduleId)});
     }
 
+
+    setWidget(lessonId){
+        // console.log("delete lesson");
+        // console.log(lessonId);
+        // console.log(this.props.course.id);
+        //
+        // var crId = this.props.course.id;
+        //
+        this.lessonService
+            .deleteLesson(lessonId)
+            .then(() => { this.findAllLessonsForModule(this.state.courseId, this.state.moduleId)});
+    }
+
     renderListOfLessons() {
         let lessons = this.state.lessons.map((lesson) =>  {
-            return <LessonListItem key={lesson.id} title={lesson.title} lessonId={lesson.id} delete={this.deleteLesson}/>
+            return <LessonListItem key={lesson.id} title={lesson.title} courseId={this.state.courseId} moduleId={this.state.moduleId} lessonId={lesson.id} delete={this.deleteLesson}/>
         })
 
 
         return lessons;
+    }
+
+
+    renderWidgets() {
+        let renderWidgets = this.state.lessons.map((lesson) =>  {
+            console.log("in widgets the lesson is"+lesson.id)
+            return (
+                <div id={lesson.id} className="tab-pane fade in active">
+                    <Provider store={store}>
+                        <WidgetApp/>
+                    </Provider>
+                </div>
+                )
+        })
+
+
+        return renderWidgets;
     }
 
 
@@ -144,21 +177,22 @@ class LessonList extends React.Component {
                     </tr>
                 </table><br/>
 
-                <table>
-                    <tr>
-                        <td>
-                    <ul className="nav nav-tabs">
+                {/*<table>*/}
+                    {/*<tr>*/}
+                        {/*<td>*/}
+                            <div className="container">
+                    <ul className="nav nav-tabs" data-tabs="tabs">
                         {this.renderListOfLessons()}
                     </ul>
-                        </td>
-                    </tr>
-                </table>
-                <div className="tab-content">
-                        <Provider store={store}>
-                                     <WidgetApp/>
-                        </Provider>
 
-                </div>
+                            </div>
+                        {/*</td>*/}
+                    {/*</tr>*/}
+                {/*</table>*/}
+
+
+
+
 
                 {/*<div className="tab-content">*/}
                     {/*/!*<div id={}*!/*/}

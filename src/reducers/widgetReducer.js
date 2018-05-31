@@ -17,6 +17,9 @@ import {
 } from "../constants";
 
 let idAutoIncrement = 3
+const WIDGET_API_URL='http://localhost:8080/api/lesson/LID/widget/save'
+const WIDGET_GET_API_URL='http://localhost:8080/api/lesson/LID/widget'
+
 
 export const widgetReducer = (state = {widgets: [],preview:false}, action) => {
 
@@ -128,8 +131,17 @@ export const widgetReducer = (state = {widgets: [],preview:false}, action) => {
 
             return JSON.parse(JSON.stringify(newState))
 
+        // case SAVE:
+        //     fetch('http://localhost:8080/api/widget/save',
+        //         {
+        //             method: 'post',
+        //             body: JSON.stringify(state.widgets),
+        //             headers: {
+        //                 'content-type': 'application/json'}
+        //         })
         case SAVE:
-            fetch('http://localhost:8080/api/widget/save',
+            fetch(WIDGET_API_URL
+                    .replace('LID', action.lesson),
                 {
                     method: 'post',
                     body: JSON.stringify(state.widgets),
@@ -222,6 +234,15 @@ export const widgetReducer = (state = {widgets: [],preview:false}, action) => {
 
 
         case FIND_ALL_WIDGETS:
+            // let netWidgetState
+            //
+            // return
+            // fetch(
+            //     MODULE_API_URL
+            //         .replace('CID', courseId))
+            //     .then(function (response) {
+            //         return response.json();
+            //     })
             return  {
                 widgets : action.widgets.sort((a,b) => a.widgetOrder - b.widgetOrder)
             }
